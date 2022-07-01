@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Form from './Form/form';
-import RecipeReviewCard from './Cards/cards'
+import Card1 from './Cards/cards';
+import MuiForm from './Form/muiform';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
   <App />
   <Form />
-  <RecipeReviewCard />
+  <Card1 />
+  <MuiForm />
   </>
 );

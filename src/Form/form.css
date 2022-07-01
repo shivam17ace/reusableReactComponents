@@ -1,6 +1,6 @@
 .container {
     text-align: center;
-    height: 300px;
+    height: 350px;
     background-color: #f6f6f6;
 }
 .input {
@@ -19,4 +19,21 @@
 }
 button {
     margin-left: 2rem;
+}
+/* muiform */
+.inputs {
+    display: flex;
+    flex-direction: row;
+}
+.input1 {
+    padding: 1em
+}
+.input2 {
+    padding: 1em
+}
+.radio {
+    padding: 2em;
+}
+.select {
+    margin-bottom: 1em;
 }

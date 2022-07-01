@@ -5,6 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import "./cards.css"
 
 const bull = (
   <Box
@@ -15,9 +16,9 @@ const bull = (
   </Box>
 );
 
-export default function BasicCard() {
+export default function Card1() {
   return (
-    <Card sx={{ minWidth: 250, maxWidth: 250 }} variant="outlined">
+    <Card sx={{ minWidth: 250, maxWidth: 250 }} variant="outlined" className='cardbox'>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
          Learning React Cards Using MUI
