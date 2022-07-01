@@ -1,0 +1,19 @@
+.container {
+    text-align: center;
+    height: 500px;
+    background-color: #f6f6f6;
+}
+.input {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+}    
+.label {
+        font-size: 0.9rem !important;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1.5px;
+        color: #707070 !important;
+        text-transform: uppercase !important;
+        margin-left: 0.5rem !important;
+}
