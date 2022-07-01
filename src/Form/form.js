@@ -35,11 +35,15 @@ function Form(){
                 </div>
                 <input type="text" onChange={inputNameHandler} />
             </div>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-            <div>
-                <button type="submit" onClick={handleShowData}> Show Data </button>
+            <div className="buttons">
+                <button type="submit" onClick={handleSubmit}>Submit</button>
+                <button type="submit" onClick={handleShowData}> Show Submitted Data </button>
                 {
-                    display ? data : null
+                    display
+                     ?
+                      <div> {data} </div>
+                     : 
+                    null
                 }
             </div>
         </div>
