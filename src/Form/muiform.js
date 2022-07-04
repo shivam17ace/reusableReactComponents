@@ -208,7 +208,6 @@ function MuiForm() {
                         y: [100,100,0,0],
                         scale: [1, 2, 2, 1, 1],
                         rotate: [0, 0, 270, 270, 0],
-                        borderRadius: ["20%", "20%", "50%", "50%", "20%"],
                       }}>
                     <Box sx={{ ...style, width: 400 }}>
                         <h2 id="parent-modal-title">Text in a modal</h2>

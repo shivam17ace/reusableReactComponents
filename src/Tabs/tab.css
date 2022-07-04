@@ -1,0 +1,10 @@
+.Tabs {
+    height: 300px;
+    text-align: center;
+}
+.tablist {
+    padding: 1em 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

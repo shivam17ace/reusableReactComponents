@@ -5,6 +5,7 @@ import App from './App';
 import Form from './Form/form';
 import Card1 from './Cards/cards';
 import MuiForm from './Form/muiform';
+import ReactTabs from './Tabs/tab';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
@@ -12,5 +13,6 @@ root.render(
   <Form />
   <Card1 />
   <MuiForm />
+  <ReactTabs />
   </>
 );
