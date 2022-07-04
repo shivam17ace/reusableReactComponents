@@ -10,31 +10,108 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import "./form.css";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+    overlay: {zIndex: 5}  
+  };
+
+  function ChildModal() {
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => {
+      setOpen(true);
+    };
+    const handleClose = () => {
+      setOpen(false);
+    };
+  
+    return (
+      <>
+        <Button onClick={handleOpen}>Open Inner Modal</Button>
+        <Modal
+          hideBackdrop
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="child-modal-title"
+          aria-describedby="child-modal-description"
+        >
+          <Box sx={{ ...style, width: 200 }}>
+            <h2 id="child-modal-title">Text in inner modal</h2>
+            <p id="child-modal-description">
+               Inner Modal Content
+            </p>
+            <Button onClick={handleClose}>Close Inner Modal</Button>
+          </Box>
+        </Modal>
+      </>
+    );
+  }
 
 function MuiForm() {
-    const initialValues = {
-        name: "",
-        age: 18,
-        gender: "",
-        hobby:'',
-    }
-    const [formData, setFormData] = useState(initialValues);
+    const [formData, setFormData] = useState('');
+    const [display, setDisplay] = useState(false)
+    const [inputName,setInputName] = useState('');
+    const [inputAge, setInputAge] = useState('');
+    const [gender, setGender] = useState('');
+    const [hobby, setHobby] = useState('');
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const data = [];
+        data.push(inputName,inputAge,gender,hobby)
+        setFormData(data)
+        setDisplay(true)
     }
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-        ...formData,
-        [name]: value,
-        });
+        if(e.target.name === "name") {
+            setInputName(e.target.value);
+          } else if(e.target.name === "age") {
+            setInputAge(e.target.value);
+          } else if(e.target.name === "gender") {
+            setGender(e.target.value);
+          } else {
+            setHobby(e.target.value);
+          }
     }
+
+    const handleShowData = () => {
+        const toggle = display ? false : true;
+        setDisplay(toggle)
+    }
+
+    // const showModal = () => {
+    //     <Modal1 />
+    // }
+    
+    // const toggleModal = () => {
+    //     isModalOpen === false ? setIsModalOpen(true) : setIsModalOpen(false);
+    // }
 
     return(
         <div className="container">
-            <form onSubmit={handleSubmit}>
+            <h2 className="header">Form Using MaterialUi</h2>
+            <form>
              <Grid container alignItems="center" justify="center" direction="column">
                 <div className="inputs">
                     <Grid item className="input1">
@@ -43,7 +120,6 @@ function MuiForm() {
                             name="name"
                             label="Name"
                             type="text"
-                            value={formData.name}
                             onChange={handleInputChange}
                         />
                     </Grid>
@@ -63,7 +139,6 @@ function MuiForm() {
                         <FormLabel>Gender</FormLabel>
                             <RadioGroup
                             name="gender"
-                            value={formData.gender}
                             onChange={handleInputChange}
                             row
                             >
@@ -93,27 +168,49 @@ function MuiForm() {
                     <FormLabel>Hobby</FormLabel>
                         <Select
                         name="hobby"
-                        value={formData.os}
                         onChange={handleInputChange}
                         className="select"
+                        value=''
                         >
-                        <MenuItem key="mac" value="mac">
+                        <MenuItem key="mac" value="sports">
                             Sports
                         </MenuItem>
-                        <MenuItem key="windows" value="windows">
+                        <MenuItem key="windows" value="study">
                             Study
                         </MenuItem>
-                        <MenuItem key="linux " value="linux">
+                        <MenuItem key="linux " value="music">
                             Music
                         </MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>
              </Grid>
-             <Button variant="contained" color="primary" type="submit">
-                Submit
-             </Button>
+                <Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>
+                    Submit
+                    {console.log(formData)}
+                </Button>
+                <Button variant="contained" color="secondary" onClick={handleShowData}>Show Submitted Data</Button>
         </form>
+            {
+                display ? formData : null
+            }
+            <div>
+                <Button onClick={handleOpen}>Open modal</Button>
+                <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="parent-modal-title"
+                aria-describedby="parent-modal-description"
+                >
+                    <Box sx={{ ...style, width: 400 }}>
+                        <h2 id="parent-modal-title">Text in a modal</h2>
+                        <p id="parent-modal-description">
+                            Modal Content
+                        </p>
+                        <ChildModal />
+                    </Box>
+                </Modal>
+            </div>
         </div>
     )
 }
