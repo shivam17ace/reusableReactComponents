@@ -12,6 +12,7 @@ import Button from "@material-ui/core/Button";
 import "./form.css";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import { motion } from 'framer-motion';
 
 const style = {
     position: 'absolute',
@@ -202,6 +203,13 @@ function MuiForm() {
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
                 >
+                    <motion.div
+                    animate={{
+                        y: [100,100,0,0],
+                        scale: [1, 2, 2, 1, 1],
+                        rotate: [0, 0, 270, 270, 0],
+                        borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+                      }}>
                     <Box sx={{ ...style, width: 400 }}>
                         <h2 id="parent-modal-title">Text in a modal</h2>
                         <p id="parent-modal-description">
@@ -209,6 +217,7 @@ function MuiForm() {
                         </p>
                         <ChildModal />
                     </Box>
+                    </motion.div>
                 </Modal>
             </div>
         </div>
