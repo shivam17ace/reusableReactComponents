@@ -104,3 +104,9 @@ const useUndo = initialPresent => {
 };
 
 export default useUndo;
+
+/*
+To use it in any component
+
+const { state, set, undo, redo, clear, canUndo, canRedo } = useUndo({});
+*/
