@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import './tab.css';
 import 'react-web-tabs/dist/react-web-tabs.css';

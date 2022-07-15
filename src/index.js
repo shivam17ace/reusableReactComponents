@@ -9,10 +9,10 @@ import ReactTabs from './Tabs/tab';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-  <App />
-  <Form />
-  <Card1 />
-  <MuiForm />
-  <ReactTabs />
+      <App />
+      <Form />
+      <Card1 />
+      <MuiForm />
+      <ReactTabs />
   </>
 );
